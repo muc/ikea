@@ -1,3 +1,5 @@
  $(document).ready(function(){
-   // ToDo
+   $('.ikeafont').click(function() {
+     $('footer').toggle();
+   });
  });
