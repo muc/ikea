@@ -286,6 +286,11 @@ header {
     height: 60px;
     margin: 0 auto;
     padding: 10px;
+    font-size: 3em;
+}
+
+.ikeafont {
+    font-family: Bowlby One SC;
 }
 
 footer {
@@ -315,4 +320,20 @@ footer {
     background-color: #ccc;
     height: 600px;
     float: left;
+}
+
+#up-button {
+   width: 0; 
+   height: 0; 
+   border-bottom: 20px solid #fff; 
+   border-left: 70px solid transparent; 
+   border-right: 70px solid transparent; 
+}
+
+#down-button { 
+   width: 0; 
+   height: 0;
+   border-top: 20px solid #fff;
+   border-left: 70px solid transparent; 
+   border-right: 70px solid transparent; 
 }
