@@ -291,7 +291,7 @@ header {
     height: 40px;
     padding: 5px 0;
     vertical-align: middle;
-    font-size: 2.6em;
+    font-size: 26px;
     margin: 0 32px;
     float: left;
 }
@@ -302,6 +302,8 @@ header {
 
 .logo {
   color: #ffcc33;
+  font-size: 34px;
+  margin-right: 15px;
 }
 
 footer {
@@ -377,4 +379,15 @@ footer {
 
 p {
   margin: 8px 0;
+}
+
+#player_control {
+  position: relative;
+  float: left;
+  top: -70px;
+  left: 293px;
+  width: 438px;
+  height: 59px;
+  background-image: url(../img/player_dummy.png);
+  z-index: 10;
 }
