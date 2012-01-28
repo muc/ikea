@@ -14,7 +14,7 @@
      $('.kwicks > li#step_3').trigger('click');
    });
    
-   $('video').click(function() {
+   $('#player_control').click(function() {
     video.paused ? video.play() : video.pause();
    });
  });
