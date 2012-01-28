@@ -1,21 +1,19 @@
  $(document).ready(function(){
-   $('.ikeafont').click(function() {
-     $('footer').toggle();
+
+  $('.kwicks').kwicks({
+    min : 65,
+    spacing : 1,
+    sticky : true,
+    event : 'click'
+  });
+
+   var video = $('video').get(0);
+
+   $('header').click(function() {
+     $('.kwicks > li#step_3').trigger('click');
    });
-
-   // video control
-   var video = document.getElementsByTagName('video')[0];
    
-   console.log(video);
-
-   $('footer').click(function() {
-    if (video.paused) {
-      video.play();
-      $('#play_pause').html('Pause');
-    }
-    else {
-      video.pause();
-      $('#play_pause').html('Play');
-    }
+   $('video').click(function() {
+    video.paused ? video.play() : video.pause();
    });
  });

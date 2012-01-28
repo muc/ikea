@@ -280,61 +280,82 @@ table { border-collapse: collapse; border-spacing: 0; }
    IKEA STYLES
    ========================================================================== */
 
+body {
+  background-color: #222;
+  margin-top: 20px;
+}
+
 header {
-    width: 1004px;
-    background-color: #eee;
-    height: 60px;
-    margin: 0 auto;
-    padding: 10px;
-    font-size: 3em;
+    width: 960px;
+    background-color: #fff;
+    height: 40px;
+    padding: 5px 0;
+    vertical-align: middle;
+    font-size: 2.6em;
+    margin: 0 32px;
+    float: left;
 }
 
 .ikeafont {
-    font-family: Bowlby One SC;
-    cursor: pointer;
+  font-family: Bowlby One SC;
+}
+
+.logo {
+  color: #ffcc33;
 }
 
 footer {
-    margin: 0 auto;
-    background-color: #888;
-    width: 1004px;
-    height: 40px;
-    padding: 10px;
+    margin: 20px 32px;
+    /*background-color: #999;*/
+    width: 960px;
+    height: 138px;
+    float: left;
 }
 
 #main {
     width: 1024px;
     margin: 0 auto;
+    background-color: #fff
 }
 
 #videocontainer {
-    width: 830px;
+    width: 960px;
     float: left;
-    padding: 10px;
-    background-color: #aaa;
-    height: 600px;
+    margin: 0 32px;
+    background-color: #000;
+    height: 540px;
 }
 
-#videothumbs {
-    width: 154px;
-    padding: 10px;
-    background-color: #ccc;
-    height: 600px;
-    float: left;
+
+.kwicks {
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
-#up-button {
-   width: 0; 
-   height: 0; 
-   border-bottom: 20px solid #fff; 
-   border-left: 70px solid transparent; 
-   border-right: 70px solid transparent; 
+.kwicks li{
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  width: 120px;
+  height: 138px;
+  margin-right: 1px;
+  background-color: #999;
 }
 
-#down-button { 
-   width: 0; 
-   height: 0;
-   border-top: 20px solid #fff;
-   border-left: 70px solid transparent; 
-   border-right: 70px solid transparent; 
+.kwicks li.active {
+  background-color: #ccc;
+}
+
+.kwicks li h1 {
+  margin: 5px;
+  font-size: 3.5em;
+  color: #fff;
+}
+
+.kwicks li.active h1 {
+  color: #ffcc33;
+  text-shadow: 1px 1px #777;
 }
