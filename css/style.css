@@ -349,13 +349,32 @@ footer {
   background-color: #ccc;
 }
 
-.kwicks li h1 {
-  margin: 5px;
+.kwicks li div.step {
+  display: block;
+  margin: 5px 0 0 7px;
+  width: 58px;
   font-size: 3.5em;
   color: #fff;
 }
 
-.kwicks li.active h1 {
+.kwicks li.active div.step {
   color: #ffcc33;
   text-shadow: 1px 1px #777;
+}
+
+.step_descr {
+  position: relative;
+  left: 65px;
+  top: -50px;
+  /*top: -32px;*/
+  width: 330px;
+}
+
+.step_descr h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+p {
+  margin: 8px 0;
 }

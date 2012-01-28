@@ -4,7 +4,8 @@
     min : 65,
     spacing : 1,
     sticky : true,
-    event : 'click'
+    event : 'click',
+    defaultKwick: 2,
   });
 
    var video = $('video').get(0);
