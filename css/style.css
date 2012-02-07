@@ -341,7 +341,7 @@ footer {
   overflow: hidden;
   padding: 0;
   cursor: pointer;
-  width: 120px;
+  width: 95px;
   height: 138px;
   margin-right: 1px;
   background-color: #999;
@@ -355,7 +355,8 @@ footer {
   display: block;
   margin: 5px 0 0 7px;
   width: 58px;
-  font-size: 3.5em;
+  font-size: 3.0em;
+  letter-spacing: -0.16em;
   color: #fff;
 }
 
@@ -369,7 +370,7 @@ footer {
   left: 65px;
   top: -50px;
   /*top: -32px;*/
-  width: 330px;
+  width: 290px;
 }
 
 .step_descr h1 {
