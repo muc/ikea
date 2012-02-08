@@ -3,13 +3,14 @@ $(document).ready(function(){
   var video = $('video').get(0);
 
   $('header').click(function() {
-    $('.kwicks > li#step_3').trigger('click');
+    $('.kwicks > li[step="' + getNextStep() + '"]').trigger('click');
   });
    
   $('#player_control').click(function() {
    video.paused ? video.play() : video.pause();
   });
 
+  // title = kwick.find('.step_descr').children('h1').html();
 
   var isScrolling = false;
   var kwicks = $('ul.kwicks');
@@ -17,8 +18,21 @@ $(document).ready(function(){
   var max = 365;
   var lis = kwicks.children('li');
   var steps = lis.size();
+  var current_step = 1;
   var listwidth = max + (steps - 1) * min + steps;
   var listoff = listwidth - 960;
+
+  function getNextStep() {
+    return current_step == steps ? current_step : current_step + 1;
+  }
+
+  function getPrevStep() {
+    return current_step == 1 ? 1 : current_step - 1;
+  }
+
+  function getOffset() {
+    return parseInt(kwicks.css('left').replace(/px/, ''));
+  }
 
 
   // step scroller helper function
@@ -44,6 +58,23 @@ $(document).ready(function(){
     }
   }
 
+  function moveScroller(direction, nr) {
+    if (!nr) {
+      var nr = 1;
+    }
+    var left = getOffset();
+    var new_left = direction == 'left' ? left + 66 * nr : left - 66 * nr;
+    new_left = new_left > 0 ? 0 : new_left;
+    new_left = new_left < (0 - listoff) ? 0 - listoff : new_left;
+
+    if (listoff > 0) {
+      show_left_scroller(new_left < 0);
+      show_right_scroller(listoff + new_left > 0);
+    }
+    kwicks.animate({left: new_left}, 250);
+  }
+
+  // show right scroller if there is a list offset
   if (listoff > 0) {
     show_right_scroller(true);
   }
@@ -74,7 +105,6 @@ $(document).ready(function(){
     }
 
     kwick.click(function() {
-      console.log(isScrolling);
       if (isScrolling) {
         isScrolling = false;
         return;
@@ -90,6 +120,17 @@ $(document).ready(function(){
         var active = kwicks.find('.active');
         lis.removeClass('active');
         kwick.addClass('active');
+        current_step = parseInt(kwick.attr('step'));
+
+        // check offset and move steps panel
+        if (current_step + getOffset() / 66 < 4) {
+          var nr = (4 - (current_step + getOffset() / 66));
+          moveScroller('left', nr);
+        }
+        if (10 + getOffset() / 66 - current_step < 3) {
+          var nr = (3 - (10 + getOffset() / 66 - current_step));
+          moveScroller('right', nr);
+        }
 
         var from = ai < idx ? ai : idx;
         var to = ai > idx ? ai : idx;
@@ -126,12 +167,12 @@ $(document).ready(function(){
   // step swiping
   $('body').mouseup(function() {
     kwicks.unbind('mousemove');
-    if (parseInt(kwicks.css('left').replace(/px/, '')) > 0) {
+    if (getOffset() > 0) {
       kwicks.animate({
         left: 0
       }, 100);
     }
-    if (parseInt(kwicks.css('left').replace(/px/, '')) < (0 - listoff)) {
+    if (getOffset() < (0 - listoff)) {
       kwicks.animate({
         left: 0 - listoff
       }, 100);
@@ -143,7 +184,7 @@ $(document).ready(function(){
     
     $(this).bind('mousemove', function(e) {
       isScrolling = true;
-      var left = parseInt($('.kwicks').css('left').replace(/px/, ''));
+      var left = getOffset();
       var delta = e.clientX - x;
       var new_left = left + delta;
       $('.kwicks').css('left', new_left);
@@ -159,17 +200,8 @@ $(document).ready(function(){
 
   // step arrow clicking
   $('.arrow').click(function() {
-    var left = parseInt($('.kwicks').css('left').replace(/px/, ''));
-    var new_left = $(this).attr('id') == 'arrow_left' ? left + 66 : left - 66;
-
-    new_left = new_left > 0 ? 0 : new_left;
-    new_left = new_left < (0 - listoff) ? 0 - listoff : new_left;
-
-    if (listoff > 0) {
-      show_left_scroller(new_left < 0);
-      show_right_scroller(listoff + new_left > 0);
-    }
-    $('.kwicks').animate({left: new_left}, 250);
+    var direction = $(this).attr('id') == 'arrow_left' ? 'left' : 'right';
+    moveScroller(direction);
   });
 
 
