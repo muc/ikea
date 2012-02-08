@@ -285,6 +285,12 @@ body {
   margin-top: 20px;
 }
 
+#main {
+    width: 1024px;
+    margin: 0 auto;
+    background-color: #fff
+}
+
 header {
     width: 960px;
     background-color: #fff;
@@ -293,7 +299,6 @@ header {
     vertical-align: middle;
     font-size: 26px;
     margin: 0 32px;
-    float: left;
 }
 
 .ikeafont {
@@ -308,21 +313,16 @@ header {
 
 footer {
     margin: 20px 32px;
-    /*background-color: #999;*/
     width: 960px;
     height: 138px;
-    float: left;
-}
-
-#main {
-    width: 1024px;
-    margin: 0 auto;
-    background-color: #fff
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #videocontainer {
     width: 960px;
-    float: left;
     margin: 0 32px;
     background-color: #000;
     height: 540px;
@@ -333,7 +333,6 @@ nav {
   overflow: hidden;
   width: 960px;
   height: 138px;
-  
 }
 
 .kwicks {
@@ -344,7 +343,7 @@ nav {
   padding: 0;
 }
 
-.kwicks li{
+.kwicks li {
   display: block;
   overflow: hidden;
   padding: 0;
@@ -399,4 +398,44 @@ p {
   height: 59px;
   background-image: url(../img/player_dummy.png);
   z-index: 10;
+}
+
+.step_scroller {
+  width: 25px;
+  height: 138px;
+  position: absolute;
+  z-index: 10;
+}
+
+#scroll_left {
+  left: 0px;
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+  display: none;
+}
+
+#scroll_right {
+  right: 0px;
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%);
+  display: none;
+}
+
+.arrow {
+  position: absolute;
+  width: 20px;
+  height: 138px;
+  z-index: 10;
+  background-color: #ccc;
+  cursor: pointer;
+  line-height: 138px;
+  text-align: center;
+}
+
+#arrow_left {
+  left: -25px;
+  display: none;
+}
+
+#arrow_right {
+  right: -25px;
+  display: none;
 }

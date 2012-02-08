@@ -1,14 +1,5 @@
 $(document).ready(function(){
 
-  // $('.kwicks').kwicks({
-  //   min : 65,
-  //   // max: 90,
-  //   spacing : 1,
-  //   sticky : true,
-  //   event : 'click'
-  //   // defaultKwick: 2,
-  // });
-
   var video = $('video').get(0);
 
   $('header').click(function() {
@@ -19,12 +10,47 @@ $(document).ready(function(){
    video.paused ? video.play() : video.pause();
   });
 
-  // pseudo kwicks
+
+  var isScrolling = false;
   var kwicks = $('ul.kwicks');
   var min = 65;
   var max = 365;
   var lis = kwicks.children('li');
   var steps = lis.size();
+  var listwidth = max + (steps - 1) * min + steps;
+  var listoff = listwidth - 960;
+
+
+  // step scroller helper function
+  function show_left_scroller(show) {
+    if (show) {
+      $('#scroll_left').fadeIn();
+      $('#arrow_left').fadeIn();
+    }
+    else {
+      $('#scroll_left').fadeOut();
+      $('#arrow_left').fadeOut();
+    }
+  }
+
+  function show_right_scroller(show) {
+    if (show) {
+      $('#scroll_right').fadeIn();
+      $('#arrow_right').fadeIn();
+    }
+    else {
+      $('#scroll_right').fadeOut();
+      $('#arrow_right').fadeOut();
+    }
+  }
+
+  if (listoff > 0) {
+    show_right_scroller(true);
+  }
+
+
+
+  // accordion
   lis.each(function(idx, val) {
     var kwick = $(this);
     kwick.css({
@@ -48,6 +74,12 @@ $(document).ready(function(){
     }
 
     kwick.click(function() {
+      console.log(isScrolling);
+      if (isScrolling) {
+        isScrolling = false;
+        return;
+      }
+
       if (!kwick.hasClass('active')) {
         var ai = 0;
         lis.each(function(i) {
@@ -90,10 +122,8 @@ $(document).ready(function(){
   });
 
 
-  var listwidth = max + (steps - 1) * min + steps;
-  var listoff = listwidth - 960;
-  console.log(listoff);
-
+  
+  // step scrolling
   $('body').mouseup(function() {
     kwicks.unbind('mousemove');
     if (parseInt(kwicks.css('left').replace(/px/, '')) > 0) {
@@ -106,18 +136,22 @@ $(document).ready(function(){
         left: 0 - listoff
       }, 100);
     }
-    return false;
   });
 
-  
   $('.kwicks').mousedown(function(ed) {
     var x = ed.clientX;
     
     $(this).bind('mousemove', function(e) {
+      isScrolling = true;
       var left = parseInt($('.kwicks').css('left').replace(/px/, ''));
       var delta = e.clientX - x;
       var new_left = left + delta;
       $('.kwicks').css('left', new_left);
+
+      if (listoff > 0) {
+        show_left_scroller(new_left < 0);
+        show_right_scroller(listoff + new_left > 0);
+      }
       x = e.clientX;
     });
   });
