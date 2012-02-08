@@ -283,22 +283,25 @@ table { border-collapse: collapse; border-spacing: 0; }
 body {
   background-color: #222;
   margin-top: 20px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #main {
-    width: 1024px;
-    margin: 0 auto;
-    background-color: #fff
+  width: 1024px;
+  margin: 0 auto;
+  background-color: #fff
 }
 
 header {
-    width: 960px;
-    background-color: #fff;
-    height: 40px;
-    padding: 5px 0;
-    vertical-align: middle;
-    font-size: 26px;
-    margin: 0 32px;
+  width: 960px;
+  background-color: #fff;
+  height: 40px;
+  padding: 5px 0;
+  vertical-align: middle;
+  font-size: 26px;
+  margin: 0 32px;
 }
 
 .ikeafont {
@@ -312,20 +315,17 @@ header {
 }
 
 footer {
-    margin: 20px 32px;
-    width: 960px;
-    height: 138px;
-    position: relative;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
+  margin: 20px 32px;
+  width: 960px;
+  height: 138px;
+  position: relative;
 }
 
 #videocontainer {
-    width: 960px;
-    margin: 0 32px;
-    background-color: #000;
-    height: 540px;
+  width: 960px;
+  margin: 0 32px;
+  background-color: #000;
+  height: 540px;
 }
 
 nav {
@@ -401,7 +401,7 @@ p {
 }
 
 .step_scroller {
-  width: 25px;
+  width: 40px;
   height: 138px;
   position: absolute;
   z-index: 10;
@@ -409,13 +409,13 @@ p {
 
 #scroll_left {
   left: 0px;
-  background: -webkit-linear-gradient(left, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);
   display: none;
 }
 
 #scroll_right {
   right: 0px;
-  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%);
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 100%);
   display: none;
 }
 
