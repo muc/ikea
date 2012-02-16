@@ -168,20 +168,22 @@
           $('#title_wrapper').stop(true, true);
 
           // Load Video
-          $('video').attr('src', 'data/step' + step.attr('step') + '.mp4');
           $('video').attr('poster', 'data/step' + step.attr('step') + '.png');
           
           if (currentStep == 1) {
+            $('video').attr('src', '');
+            $('video').attr('poster', 'data/step1.png');
+
             $('#title_wrapper').hide();
             $('#tooltip').hide();
             $('#tool_btn').hide();
             $('#logo_wrapper').hide();
-            $('#pc_prev').hide();
-            $('#pc_next').hide();
-            $('#pc_play').hide();
-            $('video').attr('src', '');
+            if (isFader) {
+              playToggle();
+            }
           }
           else {
+            $('video').attr('src', 'data/step' + step.attr('step') + '.mp4');
             // Set Step Tools
             $('.tooltip_text').html(step.find('.step_tools').html());
             $('#tooltip').fadeIn();
