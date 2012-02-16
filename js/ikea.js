@@ -116,7 +116,9 @@ $(document).ready(function(){
   });
 
   $('video').bind('ended', function() {
-    playToggle();
+    if (!isFader) {
+      playToggle();
+    }
     $('#pc_descr').fadeIn();
   });
 
