@@ -10,6 +10,14 @@ $(document).ready(function(){
 
   var video = $('video').get(0);
 
+  $('#title_wrapper').hide();
+  $('#tooltip').hide();
+  $('#tool_btn').hide();
+  $('#logo_wrapper').hide();
+  $('#pc_prev').hide();
+  $('#pc_next').hide();
+  $('#pc_play').hide();
+
   playToggle = function() {
     $('#fader').fadeToggle();
     $('#pc_prev').fadeToggle();
@@ -54,30 +62,25 @@ $(document).ready(function(){
     video.paused ? video.play() : video.pause();
   });
 
-  $('#title_wrapper').hide();
-  $('#tooltip').hide();
-  $('#tool_btn').hide();
-  $('#logo_wrapper').hide();
-  $('#pc_prev').hide();
-  $('#pc_next').hide();
-  $('#pc_play').hide();
 
   $('.tooltip_text').html($('#step_1').find('.step_tools').html());
   $('#tool_btn').click(function() {
     if ($('#tooltip').is(":visible")) {
       $('#tool_btn').css({
-        'background-image': 'url(../img/toolicon.png)'
+        'background-image': 'url(img/toolicon.png)'
       });
     }
     else {
       $('#tool_btn').css({
-        'background-image': 'url(../img/close_icon.png)'
+        'background-image': 'url(img/close_icon.png)'
       });
     }
     $('#tooltip').fadeToggle(500);
   });
 
+  $('video').bind('ended', function() {
+    playToggle();
+  });
 
-  // title = kwick.find('.step_descr').children('h1').html();
 
 });

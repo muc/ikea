@@ -160,10 +160,12 @@
           var active = container.find('.active');
           steps.removeClass('active');
           step.addClass('active');
-          var lastStep = currentStep;
+          var prevStep = currentStep;
           currentStep = parseInt(step.attr('step'));
           curStep = currentStep;
 
+          // stopp anny running animations
+          $('#title_wrapper').stop(true, true);
 
           // Load Video
           $('video').attr('src', 'data/step' + step.attr('step') + '.mp4');
@@ -184,7 +186,7 @@
             $('.tooltip_text').html(step.find('.step_tools').html());
             $('#tooltip').fadeIn();
             $('#tool_btn').css({
-              'background-image': 'url(../img/close_icon.png)'
+              'background-image': 'url("img/close_icon.png")'
             });
 
             if (isFader) {
@@ -194,7 +196,7 @@
             $('video').get(0).play();
           }
 
-          if (lastStep == 1) {
+          if (prevStep == 1) {
             $('#title_wrapper').show();
             $('#tooltip').show();
             $('#tool_btn').show();
