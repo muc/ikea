@@ -199,6 +199,7 @@
           $('video').attr('poster', 'data/step' + step.attr('step') + '.png');
           
           if (currentStep == 1) {
+            $('video').get(0).pause();
             $('video').attr('src', '');
             $('video').attr('poster', 'data/step1.png');
 
