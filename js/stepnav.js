@@ -188,6 +188,9 @@
             $('#tool_btn').css({
               'background-image': 'url("img/close_icon.png")'
             });
+            // Set Step Title
+            $('.step_title').html('Schritt ' + step.attr('step') + ': ' + step.find('.step_descr').children('h1').html());
+            $('#title_wrapper').fadeIn().delay(5000).fadeOut(1000);
 
             if (isFader) {
               playToggle();
@@ -203,9 +206,6 @@
             $('#logo_wrapper').show();
           }
 
-          // Set Step Title
-          $('.step_title').html('Schritt ' + step.attr('step') + ': ' + step.find('.step_descr').children('h1').html());
-          $('#title_wrapper').fadeIn().delay(5000).fadeOut(1000);
 
 
           if (currentStep + getOffset() / (o.min + 1) < 4) {
