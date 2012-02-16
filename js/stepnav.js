@@ -19,6 +19,14 @@
       var stepCount = steps.size();
       var listOff = o.max + (stepCount - 1) * o.min + stepCount - o.listWidth;
 
+      playToggle = function() {
+        $('#fader').fadeToggle();
+        $('#pc_prev').fadeToggle();
+        $('#pc_next').fadeToggle();
+        $('#pc_play').fadeToggle();
+        isFader = !isFader;
+      }
+
       getNextStep = function() {
         return currentStep == stepCount ? currentStep : currentStep + 1;
       }
@@ -152,7 +160,51 @@
           var active = container.find('.active');
           steps.removeClass('active');
           step.addClass('active');
+          var lastStep = currentStep;
           currentStep = parseInt(step.attr('step'));
+          curStep = currentStep;
+
+
+          // Load Video
+          $('video').attr('src', 'data/step' + step.attr('step') + '.mp4');
+          $('video').attr('poster', 'data/step' + step.attr('step') + '.png');
+          
+          if (currentStep == 1) {
+            $('#title_wrapper').hide();
+            $('#tooltip').hide();
+            $('#tool_btn').hide();
+            $('#logo_wrapper').hide();
+            $('#pc_prev').hide();
+            $('#pc_next').hide();
+            $('#pc_play').hide();
+            $('video').attr('src', '');
+          }
+          else {
+            // Set Step Tools
+            $('.tooltip_text').html(step.find('.step_tools').html());
+            $('#tooltip').fadeIn();
+            $('#tool_btn').css({
+              'background-image': 'url(../img/close_icon.png)'
+            });
+
+            if (isFader) {
+              playToggle();
+            }
+
+            $('video').get(0).play();
+          }
+
+          if (lastStep == 1) {
+            $('#title_wrapper').show();
+            $('#tooltip').show();
+            $('#tool_btn').show();
+            $('#logo_wrapper').show();
+          }
+
+          // Set Step Title
+          $('.step_title').html('Schritt ' + step.attr('step') + ': ' + step.find('.step_descr').children('h1').html());
+          $('#title_wrapper').fadeIn().delay(5000).fadeOut(1000);
+
 
           if (currentStep + getOffset() / (o.min + 1) < 4) {
             var nr = (4 - (currentStep + getOffset() / (o.min + 1)));

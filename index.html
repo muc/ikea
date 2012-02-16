@@ -19,18 +19,44 @@
 
 <div id="main" class="clearfix" role="main">
   <header>
-    <span class="logo ikeafont">IKEA</span> EXPEDIT Regal
+    <div id="logo_wrapper">
+      <span class="logo ikeafont">IKEA</span> KILBY Regal
+    </div>
   </header>
-  
-  <div id="videocontainer">
-    <video src="data/film.mp4" width="960" height="540"></video>
+
+  <div id="title_wrapper">
+    <div id="title_bar"><span class="step_title"></span></div>
   </div>
 
-  <!-- <div id="player_control"></div> -->
+  <div id="fader_wrapper">
+    <div id="fader"></div>
+  </div>
+  
+  <div id="videocontainer">
+    <video src="data/step1.mp4" width="960" height="540" poster="data/step1.png"></video>
+  </div>
+
+
+  <div id="control_wrapper">
+    <!-- <button id="pc_prev"></button> -->
+    <div id="pc_prev" class="player_controls"></div>
+    <div id="pc_play" class="player_controls"></div>
+    <div id="pc_next" class="player_controls"></div>
+    <!-- <div id="pc_time">
+      <input type="range"/>
+    </div> -->
+
+    <div id="tooltip">
+      <span class="tooltip_text">
+        <!-- 2x Seitenwände, 1x Rückwand, 6x Regalböden, 1x Frontblende, 12x große Holzdübel, 4 kleine Holzdübel, -->
+        <!-- <br/>12x Metalstifte, 2x Säckchen Nägel, 12x Schrauben, 1x Imbusschlüssel -->
+      </span>
+    </div>
+    <div id="tool_btn"></div>
+  </div>
+
 
   <footer>
-
-    <!-- <div id="scroll_right">></div> -->
 
       <div id="arrow_left" class="arrow">«</div>
       <div id="scroll_left" class="step_scroller"></div>
@@ -42,96 +68,109 @@
         <li id="step_1" step="1">
           <div class="step ikeafont">1</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Hallo!</h1>
+            <p>Willkommen bei der Videoanleitung für das Regal Kilby.</p>
           </div>
+          <div class="step_tools">2x Seitenwände, 1x Rückwand, 6x Regalböden, 1x Frontblende, 12x große Holzdübel, 4 kleine Holzdübel</div>
         </li>
 
         <li id="step_2" step="2">
           <div class="step ikeafont">2</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Was ihr braucht</h1>
+            <p>Hier seht ihr, ob alle Teile am Start sind, damit ihr loslegen könnt.</p>
           </div>
+          <div class="step_tools">2x Seitenwände, 1x Rückwand, 6x Regalböden, 1x Frontblende, 12x große Holzdübel, 4 kleine Holzdübel</div>
         </li>
 
         <li id="step_3" step="3">
           <div class="step ikeafont">3</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Vorbereiten der Seitenwand</h1>
+            <p>Hier wird die erste Seitenwand mit den Holzdübeln prepariert.</p>
           </div>
+          <div class="step_tools">1x Seitenwand, 6x große Holzdübel</div>
         </li>
 
         <li id="step_4" step="4">
           <div class="step ikeafont">4</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Regalböden montieren</h1>
+            <p>Die 3 Regalzwischenböden werden nun an der Setienwand befestigt.</p>
           </div>
+          <div class="step_tools">3x Regalböden</div>
         </li>
 
         <li id="step_5" step="5">
           <div class="step ikeafont">5</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Frontblende montieren</h1>
+            <p>Nun wird die kleine Frontblende am unteren Ende befestigt.</p>
           </div>
+          <div class="step_tools">2x kleine Holzdübel, 1x Frontblende</div>
         </li>
 
         <li id="step_6" step="6">
           <div class="step ikeafont">6</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Vorbereiten der 2. Seitenwand</h1>
+            <p>Hier werden die restlichen Holzdübel auf die montierten Regalböden gesteckt.</p>
           </div>
+          <div class="step_tools">6x große Holzdübel, 2x kleine Holzdübel</div>
         </li>
 
         <li id="step_7" step="7">
           <div class="step ikeafont">7</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Zweite Seitenwand montieren</h1>
+            <p>Jetzt legen wir die zweite Seitenwand auf die Dübel und drücken bis oins plärrt.</p>
           </div>
+          <div class="step_tools">1x Seitenwand</div>
         </li>
 
         <li id="step_8" step="8">
           <div class="step ikeafont">8</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Verschrauben der Seitenwände</h1>
+            <p>Wir fixieren nun unser bisheriges Regal mit den Schrauben.</p>
           </div>
+          <div class="step_tools">12x Schrauben</div>
         </li>
 
         <li id="step_9" step="9">
           <div class="step ikeafont">9</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Vorbereitung für Montage der Rückwand</h1>
+            <p>Hier werden Vorbereitung für die Montage der Rückwand vorgenommen.</p>
           </div>
+          <div class="step_tools">1x Rückwand</div>
         </li>
 
         <li id="step_10" step="10">
           <div class="step ikeafont">10</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Rückwand befestigen</h1>
+            <p>Die Rückwand wird nun mit den Nägeln bearbeitet.</p>
           </div>
+          <div class="step_tools">Nägel</div>
         </li>
 
         <li id="step_11" step="11">
           <div class="step ikeafont">11</div>
           <div class="step_descr">
-            <h1>Test</h1>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+            <h1>Regalböden einsetzen</h1>
+            <p>Die restlichen Regalböden werden nun in unser Regal gesetzt.</p>
           </div>
+          <div class="step_tools">12x Metallstifte, 3x Regalböden</div>
         </li>
+
         <li id="step_12" step="12">
           <div class="step ikeafont">12</div>
           <div class="step_descr">
             <h1>Test</h1>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
           </div>
+          <div class="step_tools"></div>
         </li>
 
       </ul>

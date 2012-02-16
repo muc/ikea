@@ -314,6 +314,21 @@ header {
   margin-right: 15px;
 }
 
+#title_wrapper {
+  position: relative;
+}
+
+#title_bar {
+  position: absolute;
+  left: 32px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.step_title {
+  color: #fff;
+  font-size: 2em;
+}
+
 footer {
   margin: 20px 32px;
   width: 960px;
@@ -326,6 +341,20 @@ footer {
   margin: 0 32px;
   background-color: #000;
   height: 540px;
+}
+
+#fader_wrapper {
+  position: relative;
+}
+
+#fader {
+  position: absolute;
+  margin: 0 32px;
+  width: 960px;
+  height: 540px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 7;
+  display: none;
 }
 
 nav {
@@ -375,8 +404,7 @@ nav {
 .step_descr {
   position: relative;
   left: 65px;
-  top: -50px;
-  /*top: -32px;*/
+  top: -42px;
   width: 290px;
 }
 
@@ -385,19 +413,126 @@ nav {
   margin: 0;
 }
 
-p {
-  margin: 8px 0;
+.step_descr table {
+  margin-top: 5px;
 }
 
-#player_control {
+.step_descr td {
+  padding-right: 15px;
+}
+
+.step_tools {
+  display: none;
+}
+
+p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.fett {
+  /*text-transform: uppercase;*/
+}
+
+#tool_btn {
+  position: absolute;
+  right: 0px;
+  top: -40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-image: url(../img/close_icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  z-index: 5;
+  cursor: pointer;
+}
+
+#tooltip {
+  position: absolute;
+  top: -40px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 880px;
+  height: 20px;
+  z-index: 5;
+}
+
+.tooltip_text {
+  color: #fff;
+  font-size: 1.3em;
+}
+
+#control_wrapper {
+  margin: 0 32px;
   position: relative;
-  float: left;
-  top: -70px;
-  left: 293px;
-  width: 438px;
-  height: 59px;
-  background-image: url(../img/player_dummy.png);
   z-index: 10;
+}
+
+.player_controls {
+  cursor: pointer;
+}
+
+#pc_prev {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: 150px;
+  top: -285px;
+  background-image: url(../img/new/button_rewind.png);
+  background-repeat: no-repeat;
+}
+
+#pc_next {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  right: 150px;
+  top: -285px;
+  background-image: url(../img/new/button_forward.png);
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+#pc_play {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: 450px;
+  top: -285px;
+  background-image: url(../img/new/button_play.png);
+  background-repeat: no-repeat;
+
+  /*opacity: 0.9;*/
+}
+
+#pc_time {
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  /*background-image: url(../img/new/progbar_bg.png);*/
+  /*background-repeat: repeat-x;*/
+}
+
+/*input[type="range"] {
+    -webkit-appearance: none !important;
+    background:blue;
+    height:10px;
+    width:10px;
+}*/
+
+#pc_time input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    width: 36px;
+    height: 36px;
+    /*background-image: url(../img/new/progbar_knob.png);*/
+    /*background-repeat: no-repeat;*/
+    background-color: red;
+    /*background-position: 50%;*/
+}
+
+#pc_time input {
+  width: 900px;
 }
 
 .step_scroller {
