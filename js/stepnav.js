@@ -39,12 +39,15 @@
             range: "min",
             max: video_duration,
             animate: true,          
-            slide: function(){              
+            slide: function(e, ui){              
               seeksliding = true;
+              if (ui.value < video_duration) {
+                $('#pc_descr').fadeOut();
+              }
             },
             stop:function(e,ui){
               seeksliding = false;  
-              video.currentTime = ui.value;          
+              video.currentTime = ui.value;
             }
           });
         } else {

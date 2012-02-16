@@ -31,12 +31,15 @@ $(document).ready(function(){
         range: "min",
         max: video_duration,
         animate: true,          
-        slide: function(){              
+        slide: function(e,ui){              
           seeksliding = true;
+          if (ui.value < video_duration) {
+            $('#pc_descr').fadeOut();
+          }
         },
         stop:function(e,ui){
           seeksliding = false;  
-          video.currentTime = ui.value;          
+          video.currentTime = ui.value;
         }
       });
     } else {
@@ -67,15 +70,23 @@ $(document).ready(function(){
     playToggle();
     video.paused ? video.play() : video.pause();
   });
+  $('#pc_play_descr').click(function() {
+    playToggle();
+    video.paused ? video.play() : video.pause();
+  });
 
   $('#pc_next').click(function() {
     $('.kwicks > li[step="' + getNextStep() + '"]').trigger('click');
-    // playToggle();
+  });
+  $('#pc_next_descr').click(function() {
+    $('.kwicks > li[step="' + getNextStep() + '"]').trigger('click');
   });
 
   $('#pc_prev').click(function() {
     $('.kwicks > li[step="' + getPrevStep() + '"]').trigger('click');
-    // playToggle();
+  });
+  $('#pc_prev_descr').click(function() {
+    $('.kwicks > li[step="' + getPrevStep() + '"]').trigger('click');
   });
 
 

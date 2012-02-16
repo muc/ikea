@@ -475,6 +475,7 @@ p {
 
 #pc_descr {
   display: none;
+  cursor: pointer;
 }
 
 #pc_prev_descr {
