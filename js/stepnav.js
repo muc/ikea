@@ -28,6 +28,30 @@
         isFader = !isFader;
       }
 
+      createSeek = function() {
+        var video = $('video').get(0);
+        if(video.readyState) {
+          var video_duration = video.duration;
+          $('#pc_seek').slider({
+            value: 0,
+            step: 0.01,
+            orientation: "horizontal",
+            range: "min",
+            max: video_duration,
+            animate: true,          
+            slide: function(){              
+              seeksliding = true;
+            },
+            stop:function(e,ui){
+              seeksliding = false;  
+              video.currentTime = ui.value;          
+            }
+          });
+        } else {
+          setTimeout(createSeek, 150);
+        }
+      };
+
       getNextStep = function() {
         return currentStep == stepCount ? currentStep : currentStep + 1;
       }
@@ -185,6 +209,7 @@
           }
           else {
             $('video').attr('src', 'data/step' + step.attr('step') + '.mp4');
+            createSeek();
             // Set Step Tools
             $('.tooltip_text').html(step.find('.step_tools').html());
             $('#tooltip').fadeIn();

@@ -59,6 +59,7 @@ $(document).ready(function(){
     $('#pc_next').fadeToggle();
     $('#pc_play').fadeToggle();
     $('#pc_seek').fadeToggle();
+    $('#pc_descr').fadeOut();
     isFader = !isFader;
   }
 
@@ -81,7 +82,7 @@ $(document).ready(function(){
   $('#videocontainer').click(function() {
     if (curStep == 1) {
       $('.kwicks > li[step="' + getNextStep() + '"]').trigger('click');
-      curStep++;
+      // curStep++;
       $('#title_wrapper').show();
       $('#tooltip').show();
       $('#tool_btn').show();
@@ -116,6 +117,7 @@ $(document).ready(function(){
 
   $('video').bind('ended', function() {
     playToggle();
+    $('#pc_descr').fadeIn();
   });
 
   $('video').bind('timeupdate', seekUpdate);
