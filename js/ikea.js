@@ -9,6 +9,7 @@ $(document).ready(function(){
   });
 
   var video = $('video').get(0);
+  var seeksliding = false;
 
   $('#title_wrapper').hide();
   $('#tooltip').hide();
@@ -17,12 +18,47 @@ $(document).ready(function(){
   $('#pc_prev').hide();
   $('#pc_next').hide();
   $('#pc_play').hide();
+  $('#pc_seek').hide();
+  
+
+  var createSeek = function() {
+    if(video.readyState) {
+      var video_duration = video.duration;
+      $('#pc_seek').slider({
+        value: 0,
+        step: 0.01,
+        orientation: "horizontal",
+        range: "min",
+        max: video_duration,
+        animate: true,          
+        slide: function(){              
+          seeksliding = true;
+        },
+        stop:function(e,ui){
+          seeksliding = false;  
+          video.currentTime = ui.value;          
+        }
+      });
+    } else {
+      setTimeout(createSeek, 150);
+    }
+  };
+
+  createSeek();
+
+  var seekUpdate = function() {
+  var currenttime = video.currentTime;
+    if(!seeksliding) {
+      $('#pc_seek').slider('value', currenttime);
+    }
+  };
 
   playToggle = function() {
     $('#fader').fadeToggle();
     $('#pc_prev').fadeToggle();
     $('#pc_next').fadeToggle();
     $('#pc_play').fadeToggle();
+    $('#pc_seek').fadeToggle();
     isFader = !isFader;
   }
 
@@ -82,5 +118,6 @@ $(document).ready(function(){
     playToggle();
   });
 
+  $('video').bind('timeupdate', seekUpdate);
 
 });

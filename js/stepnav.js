@@ -24,6 +24,7 @@
         $('#pc_prev').fadeToggle();
         $('#pc_next').fadeToggle();
         $('#pc_play').fadeToggle();
+        $('#pc_seek').fadeToggle();
         isFader = !isFader;
       }
 
