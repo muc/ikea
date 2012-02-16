@@ -507,15 +507,16 @@ p {
 #pc_seek {
   position: absolute;
   top: -160px;
-  left: 153px;
-  width: 650px;
+  left: 152px;
+  width: 649px;
+  height: 4px;
 }
 
 #pc_seek .ui-slider-handle {
   width: 15px;
   height: 15px;
   border: 1px solid #333;
-  top: -4px;
+  top: -7px;
   border-radius:10px; 
   
   background: #e6e6e6;
