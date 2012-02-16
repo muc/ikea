@@ -559,7 +559,7 @@ p {
   width: 20px;
   height: 138px;
   z-index: 10;
-  background-color: #ccc;
+  /*background-color: #ccc;*/
   cursor: pointer;
   line-height: 138px;
   text-align: center;
@@ -568,9 +568,11 @@ p {
 #arrow_left {
   left: -25px;
   display: none;
+  background-image: url(../img/bigarrow_left.png);
 }
 
 #arrow_right {
   right: -25px;
   display: none;
+  background-image: url(../img/bigarrow_right.png);
 }
